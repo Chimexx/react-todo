@@ -40,7 +40,7 @@ const TodoModal = ({ type, modalOpen, setModalOpen, todo }) => {
 		if (type === "add") {
 			if (title) {
 				setModalOpen(false);
-				dispatch(addTodo({ id: uuid(), title, status, time: new Date().toLocaleString() }));
+				dispatch(addTodo({ id: uuid(), title, status, time: new Date().toString() }));
 				setTitle("");
 				setStatus("incomplete");
 			} else {
@@ -87,7 +87,6 @@ const TodoModal = ({ type, modalOpen, setModalOpen, todo }) => {
 							</motion.div>
 							<form className={style.form} onSubmit={handleAddTask}>
 								<h1 className={style.formTitle}>
-									{" "}
 									{type === "update" ? "Update" : "Add"} Task
 								</h1>
 								<label htmlFor="title" id="title">
