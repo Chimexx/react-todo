@@ -1,4 +1,3 @@
-import { format } from "date-fns";
 import React, { useEffect, useState } from "react";
 import styles from "../styles/modules/todoItem.module.scss";
 import { getClasses } from "../utils/getClasses";
@@ -9,6 +8,7 @@ import TodoModal from "./TodoModal";
 import CheckButton from "./CheckButton";
 import { child } from "./AppContent";
 import { motion } from "framer-motion";
+import dayjs from "dayjs";
 
 const Todo = ({ todo }) => {
 	const [modalOpen, setModalOpen] = useState(false);
@@ -49,7 +49,7 @@ const Todo = ({ todo }) => {
 							>
 								{todo.title}
 							</p>
-							{/* <p className={styles.time}>{format(new Date(todo.time), "yyyy do MMM - p")}</p> */}
+							<p className={styles.time}>{dayjs(todo.time).format("ddd DD MMM, YYYY - ha")}</p>
 						</div>
 					</div>
 					<div className={styles.todoActions}>
