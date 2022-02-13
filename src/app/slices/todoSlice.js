@@ -17,7 +17,6 @@ export const todoSlice = createSlice({
 		updateTodo: (state, action) => {
 			const index = state.todoList.findIndex((item) => item.id === action.payload.id);
 			console.log(action.payload);
-			console.log(index);
 			state.todoList[index] = action.payload;
 			localStorage.setItem("todoList", JSON.stringify(state.todoList));
 			toast.success("Task Updated Successfully");
